@@ -23,11 +23,11 @@ typedef struct Point {
 	int y;
 } Point;
 
-void fill_pixels(int pixels[], int width, int height, uint32_t color);
-Errno save_to_ppm_file(int pixels[], int width, int height, const char *filepath);
-void fill_rect(int *pixels, int img_width, int img_height, int x0, int y0, int rect_width, int rect_height, Color color);
-void fill_circle(int *pixels, int img_width, int img_height, int cx, int cy, int r, Color color);
-void draw_line(int *pixels, int img_width, int img_height, int x0, int y0, int x1, int y1, Color color);
-void fill_triangle(int *pixels, int img_width, int img_height, Point p0, Point p1, Point p2, Color color);
+void ppmg_fill_pixels(int pixels[], int width, int height, uint32_t color);
+Errno ppmg_save_to_ppm_file(int pixels[], int width, int height, const char *filepath);
+void ppmg_fill_rect(int *pixels, int img_width, int img_height, int x0, int y0, int rect_width, int rect_height, Color color);
+void ppmg_fill_circle(int *pixels, int img_width, int img_height, int cx, int cy, int r, Color color);
+void ppmg_draw_line(int *pixels, int img_width, int img_height, int x0, int y0, int x1, int y1, Color color);
+void ppmg_fill_triangle(int *pixels, int img_width, int img_height, Point p0, Point p1, Point p2, Color color);
 
 #endif // PPMG_H

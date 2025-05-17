@@ -11,13 +11,13 @@ void swap(int *a, int *b) {
 	*b = tmp;
 }
 
-void fill_pixels(int pixels[], int width, int height, uint32_t color) {
+void ppmg_fill_pixels(int pixels[], int width, int height, uint32_t color) {
 	for (int i = 0; i < height*width; i++) {
 		pixels[i] = color;
 	} 
 }
 
-Errno save_to_ppm_file(int pixels[], int width, int height, const char *filepath) 
+Errno ppmg_save_to_ppm_file(int pixels[], int width, int height, const char *filepath) 
 {
 	int res = 0;
 	FILE *f = fopen(filepath, "w");
@@ -45,7 +45,7 @@ defer:
 	return res;
 }
 
-void fill_rect(int *pixels, int img_width, int img_height, int x0, int y0, int rect_width, int rect_height, Color color)
+void ppmg_fill_rect(int *pixels, int img_width, int img_height, int x0, int y0, int rect_width, int rect_height, Color color)
 {
 	if (rect_width < 0) {
 		rect_width = -rect_width;
@@ -68,7 +68,7 @@ void fill_rect(int *pixels, int img_width, int img_height, int x0, int y0, int r
 	}
 }
 
-void fill_circle(int *pixels, int img_width, int img_height, int cx, int cy, int r, Color color) 
+void ppmg_fill_circle(int *pixels, int img_width, int img_height, int cx, int cy, int r, Color color) 
 {
 	if (r < 0) r = -r;
 
@@ -95,7 +95,7 @@ void fill_circle(int *pixels, int img_width, int img_height, int cx, int cy, int
 	}
 }
 
-void draw_line(int *pixels, int img_width, int img_height, int x0, int y0, int x1, int y1, Color color)
+void ppmg_draw_line(int *pixels, int img_width, int img_height, int x0, int y0, int x1, int y1, Color color)
 {
 	if (x1 < x0) {
 		swap(&x0, &x1);
@@ -141,7 +141,7 @@ void draw_line(int *pixels, int img_width, int img_height, int x0, int y0, int x
 // With three points, when calling the function, I felt was handier to pass a
 // Point data-structure instead of passing the single coordinates separately. So, this
 // function, contraty to the other ones, uses a Point ds.
-void fill_triangle(int *pixels, int img_width, int img_height, Point p0, Point p1, Point p2, Color color) 
+void ppmg_fill_triangle(int *pixels, int img_width, int img_height, Point p0, Point p1, Point p2, Color color) 
 {
 	// Sort the points by y: y0 <-> y1 <-> y2
 	if (p0.y > p1.y) {
