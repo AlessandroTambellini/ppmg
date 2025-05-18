@@ -6,14 +6,14 @@
 #include <stdint.h>
 #include <string.h>
 
-#define BACKGROUND 0x1f1f1f
-#define BLUE 0x1515c0
-#define FUCHSIA 0xe500a5
-#define GREEN 0x00e000
-#define HAZEL 0x987b67
-#define RED 0xda1010
-#define SMOKE 0xd5d5d5
-#define YELLOW 0xe5e500
+#define BACKGROUND 0x1f1f1fff
+#define BLUE 0x1515c0ff
+#define FUCHSIA 0xe500a5ff
+#define GREEN 0x00e000ff
+#define HAZEL 0x987b67ff
+#define RED 0xda1010ff
+#define SMOKE 0xd5d5d5ff
+#define YELLOW 0xe5e500ff
 
 typedef int Errno;
 typedef uint32_t Color;

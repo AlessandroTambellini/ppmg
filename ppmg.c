@@ -31,9 +31,9 @@ Errno ppmg_save_to_ppm_file(int pixels[], int width, int height, const char *fil
 		for (int i = 0; i < width*height; i++) 
 		{
 			uint32_t pixel = pixels[i];
-			uint8_t r = (pixel >> (8*2)) & 0xff;
-			uint8_t g =	(pixel >> (8*1)) & 0xff;
-			uint8_t b = (pixel >> (8*0)) & 0xff;
+			uint8_t r = (pixel >> (8*3)) & 0xff;
+			uint8_t g =	(pixel >> (8*2)) & 0xff;
+			uint8_t b = (pixel >> (8*1)) & 0xff;
 
 			fprintf(f, "%d %d %d\n", r, g, b);
 			if (ferror(f)) return_defer(errno);
